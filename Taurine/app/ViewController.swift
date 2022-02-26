@@ -57,11 +57,6 @@ class ViewController: UIViewController, ElectraUI {
         
         jailbreakButton?.setTitle("Jailbreak", for: .normal)
         
-        if #available(iOS 14.4, *) {
-            jailbreakButton?.isEnabled = false
-            jailbreakButton?.setTitle("Unsupported", for: .normal)
-        }
-        
         if isJailbroken() {
             jailbreakButton?.isEnabled = false
             jailbreakButton?.setTitle("Jailbroken", for: .normal)
@@ -249,14 +244,14 @@ class ViewController: UIViewController, ElectraUI {
                     return
                 }
                 
-                if #available(iOS 14.4, *) {
+                if #available(iOS 15.4, *) {
                     fatalError("Unable to get kernel r/w")
                 }
                 
                 var hasKernelRw = false
                 var any_proc = UInt64(0)
                 
-                if #available(iOS 14, *){
+                if #available(iOS 15, *){
                     print("Selecting cicuta_virosa for iOS 14.0 - 14.3")
                     if cicuta_virosa() == 0 {
                         any_proc = our_proc_kAddr

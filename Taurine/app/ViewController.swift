@@ -243,10 +243,7 @@ class ViewController: UIViewController, ElectraUI {
                     
                     return
                 }
-                
-                if #available(iOS 15.4, *) {
-                    fatalError("Unable to get kernel r/w")
-                }
+              
                 
                 var hasKernelRw = false
                 var any_proc = UInt64(0)
@@ -257,13 +254,6 @@ class ViewController: UIViewController, ElectraUI {
                         any_proc = our_proc_kAddr
                         hasKernelRw = true
                     }
-                if(hasKernelRw==false){
-                    DispatchQueue.main.async {
-                        self.jailbreakButton.setTitle("Error: Exploit Failed", for: .normal)
-                        self.jailbreakButton.setProgress(0, animated: true)
-                    }
-                    return
-                }
                 
                 DispatchQueue.main.async {
                     self.jailbreakButton.setTitle("Please Wait... 2/3", for: .normal)

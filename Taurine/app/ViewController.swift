@@ -251,7 +251,9 @@ class ViewController: UIViewController, ElectraUI {
                 var hasKernelRw = false
                 var any_proc = UInt64(0)
                 
-                if #available(iOS 15, *){
+                if #available(iOS 15.1, *){
+                    self.jailbreakButton.setTitle("JBing 15.1", for: .normal)
+                    self.jailbreakButton.setProgress(0, animated: true)
                     print("Selecting cicuta_virosa for iOS 14.0 - 14.3")
                     if cicuta_virosa() == 0 {
                         any_proc = our_proc_kAddr

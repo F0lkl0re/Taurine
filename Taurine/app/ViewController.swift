@@ -250,8 +250,6 @@ class ViewController: UIViewController, ElectraUI {
                 
                 var hasKernelRw = false
                 var any_proc = UInt64(0)
-                
-                if #available(iOS 15.1, *){
                     self.jailbreakButton.setTitle("JBing 15.1", for: .normal)
                     self.jailbreakButton.setProgress(0, animated: true)
                     print("Selecting cicuta_virosa for iOS 14.0 - 14.3")
@@ -259,8 +257,7 @@ class ViewController: UIViewController, ElectraUI {
                         any_proc = our_proc_kAddr
                         hasKernelRw = true
                     }
-                }
-                guard hasKernelRw else {
+                if(hasKernelRw==false){
                     DispatchQueue.main.async {
                         self.jailbreakButton.setTitle("Error: Exploit Failed", for: .normal)
                         self.jailbreakButton.setProgress(0, animated: true)
